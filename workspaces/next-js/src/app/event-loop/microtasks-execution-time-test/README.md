@@ -1,0 +1,3 @@
+We have two different event listeners on one button here as we see from the logs that microtasks are executed after each separate event. It do not prove that microtasks are executed every time when JS stack is empty as it is said [here](https://youtu.be/cCOL7MC4Pl0?si=Vl9I8NIC1Yb2A2On&t=1545). Because each event is a macrotask that is executed as separate macrotask. 
+
+There is a question: why does `.click()` execute both event listeners in a row before going to execute microtasks? Maybe it is because in this case, those event listeners are executed as one event. And it has nothing to do with cleaning the execution stack. 

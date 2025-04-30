@@ -1,0 +1,1 @@
+This example clearly shows that `setTimeout` is called more often than `requestAnimationFrame`. This proves that the rendering queue runs only when its time has come. Because if these tasks were running each time a macrotask is finished, what we would see is two boxes moving with the same speed.

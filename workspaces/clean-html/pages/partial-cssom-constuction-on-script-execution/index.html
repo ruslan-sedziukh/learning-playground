@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="./styles.css" rel="stylesheet" />
+
   <title>Document</title>
 </head>
 
@@ -15,7 +18,8 @@
   <script>
     const theDivBeforeStyleElement = document.getElementById('theDiv')
 
-    console.log('getComputedStyle(theDivBeforeStyleElement):', getComputedStyle(theDivBeforeStyleElement).backgroundColor)
+    console.log('getComputedStyle(theDivBeforeStyleElement).color:', getComputedStyle(theDivBeforeStyleElement).color)
+    console.log('getComputedStyle(theDivBeforeStyleElement).backgroundColor:', getComputedStyle(theDivBeforeStyleElement).backgroundColor)
   </script>
 
   <style>
@@ -27,7 +31,7 @@
   <script>
     const theDivAfterStyleElement = document.getElementById('theDiv')
 
-    console.log('getComputedStyle(theDivAfterStyleElement) before style element:', getComputedStyle(theDivAfterStyleElement).backgroundColor)
+    console.log('getComputedStyle(theDivAfterStyleElement).backgroundColor before style element:', getComputedStyle(theDivAfterStyleElement).backgroundColor)
   </script>
 </body>
 

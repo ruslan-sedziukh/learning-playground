@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Async styles  -->
+  <!-- <link href="./styles.css" rel="stylesheet" media="print" onload="this.media='all'" /> -->
+  <!-- Sync styles -->
+  <!-- <link href="./styles.css" rel="stylesheet" /> -->
+  <link href="./styles.css" rel="stylesheet" disabled id="non-critical-stylesheet" />
+  <script src="load-non-critical-stylesheet.js" defer></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="test-target" style="background-color: red; padding: 1rem;">
+    <div>
+      aaa
+    </div>
+  </div>
+</body>
+
+</html>

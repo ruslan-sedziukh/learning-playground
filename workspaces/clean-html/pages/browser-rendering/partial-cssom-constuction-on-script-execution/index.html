@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="./styles.css" rel="stylesheet" />
+
+  <script>
+    console.log("Script executing...");
+    console.log("Number of stylesheets:", document.styleSheets.length);
+
+    if (document.styleSheets.length > 0) {
+      console.log("First stylesheet rules:", document.styleSheets[0].cssRules || document.styleSheets[0].rules);
+      console.log("Stylesheets likely loaded.");
+    } else {
+      console.log("Stylesheets might not be loaded yet.");
+    }
+  </script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="theDiv">
+    aaa
+  </div>
+
+  <script>
+    const theDivBeforeStyleElement = document.getElementById('theDiv')
+
+    console.log('getComputedStyle(theDivBeforeStyleElement).color:', getComputedStyle(theDivBeforeStyleElement).color)
+    console.log('getComputedStyle(theDivBeforeStyleElement).backgroundColor:', getComputedStyle(theDivBeforeStyleElement).backgroundColor)
+  </script>
+
+  <style>
+    div {
+      background-color: bisque;
+    }
+  </style>
+
+  <script>
+    const theDivAfterStyleElement = document.getElementById('theDiv')
+
+    console.log('getComputedStyle(theDivAfterStyleElement).backgroundColor before style element:', getComputedStyle(theDivAfterStyleElement).backgroundColor)
+  </script>
+</body>
+
+</html>

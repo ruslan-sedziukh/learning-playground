@@ -12,7 +12,7 @@ Profiling of the same case, but the stylesheet is loaded synchronously:
 
 ![Profiling for sync stylesheet](readme-assets/profiling-for-sync-stylesheet.png)
 
-We can see that the completed page (with all styles) is rendered at the same time in both cases, but in the case of async loading, we have another frame before with just inline styles. 
+We can see that the completed page (with all styles) is rendered at the same time in both cases, but in the case of async loading, we have another frame before with just inline styles. (3g throttling should be used)
 
 But we can achieve a similar result by splitting the stylesheet and loading the critical part of the styles synchronously and non non-critical part asynchronously. It would produce almost the same result, but without inline styles.
 

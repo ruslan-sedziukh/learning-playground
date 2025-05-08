@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="./styles.css" rel="stylesheet" />
+  <!-- <link href="./styles-big.css" rel="stylesheet" /> -->
+  <link href="./styles-2.css" rel="stylesheet" media="print" onload="this.media='all'" />
 
   <script>
     console.log("Script executing...");
@@ -24,7 +26,7 @@
 
 <body>
   <div id="theDiv">
-    aaa
+    yeah boooooy
   </div>
 
   <script>
@@ -43,7 +45,7 @@
   <script>
     const theDivAfterStyleElement = document.getElementById('theDiv')
 
-    console.log('getComputedStyle(theDivAfterStyleElement).backgroundColor before style element:', getComputedStyle(theDivAfterStyleElement).backgroundColor)
+    console.log('getComputedStyle(theDivAfterStyleElement).backgroundColor after style element:', getComputedStyle(theDivAfterStyleElement).backgroundColor)
   </script>
 </body>
 

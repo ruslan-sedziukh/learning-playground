@@ -8,5 +8,8 @@
       "workspaces/*"
     ]
   },
+  "scripts": {
+    "next-js-dev": "yarn workspace next-js dev"
+  },
   "private": true
 }

@@ -21,7 +21,7 @@ const Test = () => {
 
     console.log('Worker:', workerRef.current)
 
-    workerRef.current.postMessage('makeBigCalculation')
+    workerRef.current.postMessage({ task: 'makeBigCalculation' })
 
     return () => {
       if (workerRef.current) {

@@ -1,4 +1,4 @@
-import { MouseEventHandler, ReactNode, Ref } from 'react'
+import { ButtonHTMLAttributes, MouseEventHandler, ReactNode, Ref } from 'react'
 import { twJoin, twMerge } from 'tailwind-merge'
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
   active?: boolean
   ref?: Ref<HTMLButtonElement>
   className?: string
-}
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
 const Button = ({
   children,
@@ -15,6 +15,7 @@ const Button = ({
   active = true,
   ref,
   className,
+  ...res
 }: Props) => {
   const ownClasses = twJoin(
     'rounded cursor-pointer px-2 text-white',
@@ -26,6 +27,7 @@ const Button = ({
       className={twMerge(ownClasses, className)}
       onClick={active ? onClick : undefined}
       ref={ref || undefined}
+      {...res}
     >
       {children}
     </button>

@@ -36,6 +36,15 @@ const sections: SectionData[] = [
       },
     ],
   },
+  {
+    heading: 'React 19',
+    links: [
+      {
+        href: 'react19/useOptimistic',
+        text: 'useOptimistic',
+      },
+    ],
+  },
 ]
 
 export default function Home() {

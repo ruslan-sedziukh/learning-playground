@@ -6,6 +6,7 @@ type Props = {
   onClick?: MouseEventHandler<HTMLButtonElement>
   active?: boolean
   ref?: Ref<HTMLButtonElement>
+  onClickAction?: () => void
   className?: string
 } & ButtonHTMLAttributes<HTMLButtonElement>
 

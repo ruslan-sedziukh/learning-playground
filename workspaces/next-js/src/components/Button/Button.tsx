@@ -19,7 +19,7 @@ const Button = ({
   ...res
 }: Props) => {
   const ownClasses = twJoin(
-    'rounded cursor-pointer px-2 text-white',
+    'rounded cursor-pointer px-2 text-white w-max',
     active ? 'bg-blue-300' : 'bg-gray-400'
   )
 

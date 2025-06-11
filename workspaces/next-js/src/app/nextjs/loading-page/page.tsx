@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import Loading from './loading'
 import SortProducts from './SortProducts'
 import Link from 'next/link'
-import { Dumb } from '@/components/Dumb'
+import { Dumb } from './_components/Dumb'
 
 const LoadingComponent = async () => {
   const a: string = await new Promise((resolve) => {

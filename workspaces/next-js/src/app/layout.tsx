@@ -26,14 +26,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[100%]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-[100%] flex justify-center bg-neutral-50 `}
       >
-        <div className="grid grid-rows-[min-content_1fr] bg-neutral-50 h-screen gap-5 justify-center">
-          <header className="flex items-center justify-center my-2">
+        <div className="flex flex-col items-center h-screen w-full max-w-[1024px]">
+          <header className="flex items-center justify-center my-2 w-full">
             <Link href="/">Home</Link>
           </header>
 
-          <main className="flex justify-center max-w-[1024px]">{children}</main>
+          <main className="flex justify-center w-full h-full p-2">
+            {children}
+          </main>
         </div>
       </body>
     </html>

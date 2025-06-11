@@ -16,7 +16,7 @@ export default function RootLayout({
   second: ReactNode
 }>) {
   return (
-    <div className="bg-slate-300 w-full h-full">
+    <div className="w-full h-full">
       {children}
       {first}
       {second}

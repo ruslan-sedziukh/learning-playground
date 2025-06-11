@@ -1,12 +1,13 @@
 'use client'
 
+import Button from '@/components/Button'
 import { useEffect, useState } from 'react'
 
 const GetData = () => {
   const [data, setData] = useState<string>()
 
   const getData = async () => {
-    const response = await fetch('/api/new-page-data/Ruslan')
+    const response = await fetch('/nextjs/api/new-page-data/Ruslan')
 
     const data = await response.json()
 
@@ -18,11 +19,11 @@ const GetData = () => {
   }, [])
 
   return (
-    <>
-      <button onClick={getData}>Get data</button>
+    <div className="flex flex-col gap-2">
+      <Button onClick={getData}>Get data</Button>
 
       <div>{data ? data : 'empty'}</div>
-    </>
+    </div>
   )
 }
 

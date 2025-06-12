@@ -29,7 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-[100%] flex justify-center bg-neutral-50 `}
       >
         <div className="flex flex-col items-center h-screen w-full max-w-[1024px]">
-          <header className="flex items-center justify-center my-2 w-full">
+          <header className="flex items-center justify-center py-2 w-full border-b-2 border-neutral-300">
             <Link href="/">Home</Link>
           </header>
 

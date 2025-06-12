@@ -2,6 +2,8 @@
 
 import { useOptimistic, useState, useRef } from 'react'
 import { deliverMessage } from './action'
+import Input from '@/components/Input'
+import Button from '@/components/Button'
 
 type Message = {
   text: string
@@ -43,7 +45,7 @@ function Thread({
   )
 
   return (
-    <>
+    <div className="flex flex-col gap-2">
       {optimisticMessages.map((message: Message, index: number) => (
         <div key={index}>
           {message.text}
@@ -52,17 +54,21 @@ function Thread({
         </div>
       ))}
 
-      <form ref={formRef} action={formAction}>
-        <input
+      <form
+        ref={formRef}
+        action={formAction}
+        className="flex flex-col gap-2 items-start"
+      >
+        <Input
           type="text"
           name="message"
           placeholder="Hello!"
           onChange={() => console.log('change')}
         />
 
-        <button type="submit">Send</button>
+        <Button type="submit">Send</Button>
       </form>
-    </>
+    </div>
   )
 }
 

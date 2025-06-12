@@ -1,4 +1,4 @@
-import Button from '@/components/Button/Button'
+import Button from '@/components/Button'
 
 export default function Page() {
   // This function should be called on the server when user clicks a button

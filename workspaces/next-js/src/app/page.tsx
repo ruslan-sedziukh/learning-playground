@@ -37,18 +37,6 @@ const sections: SectionData[] = [
         href: 'nextjs/intersecting',
         text: 'Intersecting',
       },
-      {
-        href: 'nextjs/server-form-action',
-        text: 'Server form action',
-      },
-      {
-        href: 'nextjs/server-action',
-        text: 'Server action',
-      },
-      {
-        href: 'nextjs/optimistic-form',
-        text: 'Optimistic form',
-      },
     ],
   },
   {
@@ -88,6 +76,14 @@ const sections: SectionData[] = [
   {
     heading: 'React 19',
     links: [
+      {
+        href: 'react19/server-form-action',
+        text: 'Server form action',
+      },
+      {
+        href: 'react19/server-action',
+        text: 'Server action',
+      },
       {
         href: 'react19/useOptimistic',
         text: 'useOptimistic',

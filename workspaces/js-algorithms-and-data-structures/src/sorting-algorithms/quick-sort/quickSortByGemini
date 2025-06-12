@@ -1,0 +1,24 @@
+export const quickSort = (
+  arr: number[],
+  order: 'asc' | 'desc' = 'asc'
+): number[] => {
+  if (arr.length <= 1) {
+    return arr // Base case: array with 0 or 1 element is already sorted
+  }
+
+  const orderCoefficient = order === 'asc' ? 1 : -1
+
+  const pivot = arr[0] // Choose the first element as the pivot
+  const left: number[] = []
+  const right: number[] = []
+
+  for (let i = 1; i < arr.length; i++) {
+    if ((pivot - arr[i]) * orderCoefficient >= 0) {
+      left.push(arr[i])
+    } else {
+      right.push(arr[i])
+    }
+  }
+
+  return [...quickSort(left, order), pivot, ...quickSort(right, order)]
+}

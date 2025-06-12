@@ -9,7 +9,8 @@
     ]
   },
   "scripts": {
-    "next-js-dev": "npm run dev --workspace=next-js --"
+    "next-js-dev": "npm run dev --workspace=next-js --",
+    "js-al-test": "npm run test --workspace=js-algorithms-and-data-structures"
   },
   "private": true
 }

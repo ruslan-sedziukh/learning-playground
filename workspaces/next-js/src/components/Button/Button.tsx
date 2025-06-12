@@ -1,3 +1,5 @@
+'use client'
+
 import { ButtonHTMLAttributes, MouseEventHandler, ReactNode, Ref } from 'react'
 import { twJoin, twMerge } from 'tailwind-merge'
 

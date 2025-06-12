@@ -3,6 +3,43 @@ import type { SectionData } from './_components/TableOfContents/types'
 
 const sections: SectionData[] = [
   {
+    heading: 'Next.js',
+    links: [
+      {
+        href: 'nextjs/new-page',
+        text: 'New page',
+      },
+      {
+        href: 'nextjs/loading-page',
+        text: 'Loading page',
+      },
+      {
+        href: 'nextjs/dynamic/1',
+        text: 'Dynamic 1',
+      },
+      {
+        href: 'nextjs/catch-all/1/2',
+        text: 'Catch-all 1 2',
+      },
+      {
+        href: 'nextjs/parallel-routes',
+        text: 'Parallel routes',
+      },
+      {
+        href: 'nextjs/group-1',
+        text: 'Group 1',
+      },
+      {
+        href: 'nextjs/group-2',
+        text: 'Group 2',
+      },
+      {
+        href: 'nextjs/intersecting',
+        text: 'Intersecting',
+      },
+    ],
+  },
+  {
     heading: 'Event Loop',
     links: [
       {
@@ -33,6 +70,23 @@ const sections: SectionData[] = [
       {
         href: 'web-workers/dedicated-worker',
         text: 'Dedicated worker',
+      },
+    ],
+  },
+  {
+    heading: 'React 19',
+    links: [
+      {
+        href: 'react19/server-form-action',
+        text: 'Server form action',
+      },
+      {
+        href: 'react19/server-action',
+        text: 'Server action',
+      },
+      {
+        href: 'react19/useOptimistic',
+        text: 'useOptimistic',
       },
     ],
   },

@@ -9,7 +9,7 @@
     ]
   },
   "scripts": {
-    "next-js-dev": "yarn workspace next-js dev"
+    "next-js-dev": "npm run dev --workspace=next-js --"
   },
   "private": true
 }

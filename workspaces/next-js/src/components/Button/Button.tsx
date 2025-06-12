@@ -16,6 +16,7 @@ const Button = ({
   active = true,
   ref,
   className,
+  onClickAction,
   ...res
 }: Props) => {
   const ownClasses = twJoin(
@@ -23,10 +24,24 @@ const Button = ({
     active ? 'bg-blue-300' : 'bg-gray-400'
   )
 
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
+    if (!active) {
+      return
+    }
+
+    if (onClickAction) {
+      onClickAction()
+    }
+
+    if (onClick) {
+      onClick(e)
+    }
+  }
+
   return (
     <button
       className={twMerge(ownClasses, className)}
-      onClick={active ? onClick : undefined}
+      onClick={handleClick}
       ref={ref || undefined}
       {...res}
     >

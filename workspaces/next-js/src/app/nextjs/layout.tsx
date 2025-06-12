@@ -8,11 +8,9 @@ export default function RootLayout({
   modal: React.ReactNode
 }>) {
   return (
-    <div className="w-full max-w-[1024px] h-full">
-      <div>
-        {children}
-        {modal}
-      </div>
-    </div>
+    <>
+      {children}
+      {modal}
+    </>
   )
 }

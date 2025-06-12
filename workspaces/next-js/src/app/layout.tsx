@@ -33,9 +33,7 @@ export default function RootLayout({
             <Link href="/">Home</Link>
           </header>
 
-          <main className="flex justify-center w-full h-full p-2">
-            {children}
-          </main>
+          <main className="w-full h-full p-2 max-w-[1024px]">{children}</main>
         </div>
       </body>
     </html>

@@ -1,4 +1,4 @@
-import { Node } from '../../lib/BaseNode'
+import { Node } from '../../../lib/BaseNode'
 
 /*
 Statement

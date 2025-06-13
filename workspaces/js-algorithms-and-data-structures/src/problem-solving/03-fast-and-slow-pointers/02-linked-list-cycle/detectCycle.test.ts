@@ -1,5 +1,5 @@
 import { detectCycle } from './detectCycle'
-import { List } from '../../lib/SinglyLinkedList'
+import { List } from '../../../lib/SinglyLinkedList'
 
 describe('detectCycle', () => {
   it.each([

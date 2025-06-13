@@ -1,4 +1,4 @@
-import { List } from '../../lib/SinglyLinkedList'
+import { List } from '../../../lib/SinglyLinkedList'
 import { getMiddleNode } from './getMiddleNode'
 
 describe('getMiddleNode', () => {

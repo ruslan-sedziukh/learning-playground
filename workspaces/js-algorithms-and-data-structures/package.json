@@ -23,8 +23,5 @@
     "build": "webpack",
     "start": "webpack --watch",
     "test": "jest"
-  },
-  "jest": {
-    "preset": "ts-jest"
   }
 }

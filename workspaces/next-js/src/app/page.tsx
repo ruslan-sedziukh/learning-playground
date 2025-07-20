@@ -89,7 +89,7 @@ const sections: SectionData[] = [
         text: 'useOptimistic',
       },
     ],
-  },
+  }
 ]
 
 export default function Home() {

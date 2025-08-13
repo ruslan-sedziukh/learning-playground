@@ -3,9 +3,9 @@ version: '3.8'
 services:
   app:
     build:
-      # Build from the current directory (where Dockerfile is)
-      context: .
-      dockerfile: Dockerfile
+      # Set the build context to the root of the monorepo
+      context: ../..
+      dockerfile: ./workspaces/nest-js/Dockerfile
     ports:
       # Map host port 3000 to container port 3000
       - '3000:3000'

@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      # Set the build context to the root of the monorepo
+      context: ../..
+      dockerfile: ./workspaces/nest-js/Dockerfile
+    ports:
+      # Map host port 3000 to container port 3000
+      - '3000:3000'
+    environment:
+      # These environment variables are passed to the 'app' container
+      # They should match what NestJS expects for DB connection
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USERNAME: ${DB_USERNAME} # Read from .env file
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+      APP_PORT: ${APP_PORT}
+    depends_on:
+      # Ensure the database starts before the application
+      # Mount your local code for hot-reloading in development (optional, remove for production)
+      - db
+    volumes:
+      - .:/app
+      # Exclude node_modules from the mounted volume to prevent issues
+      - /app/node_modules
+
+  db:
+    # Use a specific version of PostgreSQL
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    ports:
+      # Expose DB port to host (optional, for tools like pgAdmin)
+      - '5432:5432'
+    volumes:
+      # Persistent data volume
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  # Define the named volume for PostgreSQL data
+  pgdata:

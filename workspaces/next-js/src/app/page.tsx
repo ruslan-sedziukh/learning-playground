@@ -74,6 +74,15 @@ const sections: SectionData[] = [
     ],
   },
   {
+    heading: 'React',
+    links: [
+      {
+        href: 'react/use-effect-for-context-update',
+        text: 'useEffect for context update',
+      },
+    ],
+  },
+  {
     heading: 'React 19',
     links: [
       {

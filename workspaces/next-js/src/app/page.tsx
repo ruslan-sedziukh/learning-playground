@@ -80,6 +80,10 @@ const sections: SectionData[] = [
         href: 'react/use-effect-for-context-update',
         text: 'useEffect for context update',
       },
+      {
+        href: 'react/preserving-and-resetting-state',
+        text: 'Preserving and resetting state',
+      },
     ],
   },
   {

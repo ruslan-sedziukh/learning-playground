@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ItemsModule } from './items/items.module';
 import { UsersModule } from './users/users.module';
+import { TasksModule } from './tasks/tasks.module';
 // import * as path from 'path';
 // Import your entities here
 // import { User } from './user/user.entity'; // Example entity
@@ -34,6 +35,7 @@ import { UsersModule } from './users/users.module';
     // Add your feature modules here (e.g., UserModule)
     ItemsModule,
     UsersModule,
+    TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],

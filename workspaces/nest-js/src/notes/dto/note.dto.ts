@@ -1,6 +1,6 @@
 import { IsString, MaxLength } from 'class-validator';
 
-export class CreateTaskDto {
+export class CreateNoteDto {
   @IsString()
   @MaxLength(30)
   readonly title: string;

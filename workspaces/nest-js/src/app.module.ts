@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { ItemsModule } from './modules/items/items.module';
 import { UsersModule } from './modules/users/users.module';
 import { NotesModule } from './modules/notes/notes.module';
+import { AuthModule } from './modules/auth/auth.module';
 // import * as path from 'path';
 // Import your entities here
 // import { User } from './user/user.entity'; // Example entity
@@ -36,6 +37,7 @@ import { NotesModule } from './modules/notes/notes.module';
     ItemsModule,
     UsersModule,
     NotesModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

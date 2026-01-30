@@ -8,7 +8,7 @@ export class CreateUserDto {
   @IsEmail()
   readonly email: string;
 
-  @IsInt()
+  @IsString()
   @MaxLength(30)
   readonly password: string;
 }

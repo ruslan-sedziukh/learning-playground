@@ -16,5 +16,8 @@
     "nest-js:docker:down": "npm run docker:down --workspace=nest-js --",
     "js-al:test": "npm run test --workspace=js-algorithms-and-data-structures"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@types/passport": "^1.0.17"
+  }
 }

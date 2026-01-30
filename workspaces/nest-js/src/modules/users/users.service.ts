@@ -8,16 +8,20 @@ import { CreateUserDto } from './dto/create-user.dto';
 export class UsersService {
   constructor(
     @InjectRepository(User)
-    private itemsRepository: Repository<User>,
+    private usersRepository: Repository<User>,
   ) {}
 
   create(createUserDto: CreateUserDto): Promise<User> {
-    const newItem = this.itemsRepository.create(createUserDto);
+    const newItem = this.usersRepository.create(createUserDto);
 
-    return this.itemsRepository.save(newItem);
+    return this.usersRepository.save(newItem);
   }
 
   findAll(): Promise<User[]> {
-    return this.itemsRepository.find();
+    return this.usersRepository.find();
+  }
+
+  findOneByEmail(email: string): Promise<User | null> {
+    return this.usersRepository.findOne({ where: { email } });
   }
 }

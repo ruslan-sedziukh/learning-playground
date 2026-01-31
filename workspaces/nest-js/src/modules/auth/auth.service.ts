@@ -6,7 +6,7 @@ import {
 import { UsersService } from '../users/users.service';
 import { RegisterDto } from './dto/register.dto';
 import * as bcrypt from 'bcrypt';
-import { isRecordWithCode } from 'src/common/utils/isRecordWithCode';
+import { isRecordWithCode } from 'src/common/utils/is-record-with-code';
 import { JwtService } from '@nestjs/jwt';
 import { LoginDto } from './dto/login.dto';
 

@@ -3,6 +3,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { UsersService } from '../users/users.service';
+import { ConfigService } from '@nestjs/config';
 
 // Define the shape of the JWT payload
 interface JwtPayload {
@@ -13,13 +14,22 @@ interface JwtPayload {
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-  constructor(private usersService: UsersService) {
+  constructor(
+    private usersService: UsersService,
+    private configService: ConfigService,
+  ) {
+    const secret = configService.get<string>('JWT_SECRET');
+
+    if (!secret) {
+      throw new Error('JWT_SECRET is not defined in the environment variables');
+    }
+
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
       // IMPORTANT: Use the same secret as in your auth.module.ts
       // In production, this MUST be from a secure environment variable
-      secretOrKey: 'SECRET_KEY',
+      secretOrKey: secret,
     });
   }
 
@@ -29,12 +39,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
    * Whatever is returned from this method will be attached to the Request object as `req.user`.
    */
   async validate(payload: JwtPayload) {
-    // You can add more validation here, e.g., check if the user still exists
     const user = await this.usersService.findOneById(payload.sub);
+
     if (!user) {
       throw new UnauthorizedException('User not found.');
     }
-    // Passport will attach this user object to the request
+
     return user;
   }
 }

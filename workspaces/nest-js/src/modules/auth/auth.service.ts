@@ -35,6 +35,7 @@ export class AuthService {
       if (isRecordWithCode(error) && error.code === '23505') {
         throw new ConflictException('Email already exists');
       }
+
       throw error;
     }
   }

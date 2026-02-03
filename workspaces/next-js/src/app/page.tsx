@@ -102,6 +102,19 @@ const sections: SectionData[] = [
         text: 'useOptimistic',
       },
     ],
+  },
+  {
+    heading: 'With backend part',
+    links: [
+      {
+        href: 'login',
+        text: 'Auth form'
+      },
+      {
+        href: 'admin',
+        text: 'Admin'
+      }
+    ]
   }
 ]
 

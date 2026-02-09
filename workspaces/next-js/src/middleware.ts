@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get('accessToken')?.value
 
   // 2. Define protected paths
-  const isInternalPage = request.nextUrl.pathname.startsWith('/admin')
+  const isInternalPage = request.nextUrl.pathname.startsWith('/user-space')
 
   if (isInternalPage) {
     if (!token) {
@@ -21,7 +21,7 @@ export function middleware(request: NextRequest) {
       const payload: { role?: string } = decodeJwt(token)
 
       // 4. Check the role
-      if (payload.role !== 'admin') {
+      if (payload.role !== 'user') {
         // Redirect if they are not an admin
         return NextResponse.redirect(new URL('/unauthorized', request.url))
       }
@@ -36,5 +36,5 @@ export function middleware(request: NextRequest) {
 
 // Routes to run this middleware on
 export const config = {
-  matcher: ['/admin/:path*', '/dashboard/:path*'],
+  matcher: ['/user-space/:path*', '/dashboard/:path*'],
 }

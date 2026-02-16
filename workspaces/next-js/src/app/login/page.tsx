@@ -27,7 +27,8 @@ export default function Page() {
       }
 
       const data = await response.json();
-      const token = data.accessToken; // Assuming NestJS returns { accessToken: '...' }
+      // Assuming NestJS returns { accessToken: '...' }
+      const token = data.accessToken;
 
       // Store the JWT in an HTTP-only cookie
       const cookieStore = await cookies();

@@ -4,6 +4,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { UsersService } from '../users/users.service';
 import { ConfigService } from '@nestjs/config';
+import { jwtFromCookie } from './extractors/jwt-cookie.extractor';
 
 // Define the shape of the JWT payload
 interface JwtPayload {
@@ -25,7 +26,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     }
 
     super({
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      jwtFromRequest: ExtractJwt.fromExtractors([
+        ExtractJwt.fromAuthHeaderAsBearerToken(),
+        jwtFromCookie,
+      ]),
       ignoreExpiration: false,
       // IMPORTANT: Use the same secret as in your auth.module.ts
       // In production, this MUST be from a secure environment variable

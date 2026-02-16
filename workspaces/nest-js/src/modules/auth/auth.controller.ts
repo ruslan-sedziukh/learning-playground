@@ -14,7 +14,8 @@ export class AuthController {
   }
 
   @Post('login')
-  @HttpCode(HttpStatus.OK) // Login is usually a POST but returns 200 OK
+  // Login is usually a POST but returns 200 OK
+  @HttpCode(HttpStatus.OK)
   async login(@Body() loginDto: LoginDto) {
     return this.authService.login(loginDto);
   }

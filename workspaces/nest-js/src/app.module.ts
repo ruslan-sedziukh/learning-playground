@@ -3,6 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config'; // For environment variables
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ItemsModule } from './modules/items/items.module';
+import { UsersModule } from './modules/users/users.module';
+import { NotesModule } from './modules/notes/notes.module';
+import { AuthModule } from './modules/auth/auth.module';
 // import * as path from 'path';
 // Import your entities here
 // import { User } from './user/user.entity'; // Example entity
@@ -30,6 +34,10 @@ import { AppService } from './app.service';
       }),
     }),
     // Add your feature modules here (e.g., UserModule)
+    ItemsModule,
+    UsersModule,
+    NotesModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

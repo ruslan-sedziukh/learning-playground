@@ -22,10 +22,6 @@ services:
       # Ensure the database starts before the application
       # Mount your local code for hot-reloading in development (optional, remove for production)
       - db
-    volumes:
-      - .:/app
-      # Exclude node_modules from the mounted volume to prevent issues
-      - /app/node_modules
 
   db:
     # Use a specific version of PostgreSQL

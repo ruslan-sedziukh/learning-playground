@@ -111,8 +111,12 @@ const sections: SectionData[] = [
         text: 'Auth form'
       },
       {
-        href: 'admin',
-        text: 'Admin'
+        href: 'users',
+        text: 'Users'
+      },
+      {
+        href: 'feed',
+        text: 'Feed'
       }
     ]
   }

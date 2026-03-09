@@ -1,12 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-
-interface Note {
-  title: string,
-  description: string,
-  id: number
-}
+import { Note } from '../../_types/Note.type';
 
 const Notes = () => {
   const [notes, setNotes] = useState<Note[]>([])

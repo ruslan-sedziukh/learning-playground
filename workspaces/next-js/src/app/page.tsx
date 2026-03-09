@@ -117,6 +117,10 @@ const sections: SectionData[] = [
       {
         href: 'feed',
         text: 'Feed'
+      },
+      {
+        href: 'feed-client',
+        text: 'Feed client'
       }
     ]
   }

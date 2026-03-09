@@ -15,7 +15,6 @@ export class NotesController {
   }
 
   @Get()
-  @Roles('user')
   async findAll(): Promise<Note[]> {
     return await this.notesService.findAll();
   }

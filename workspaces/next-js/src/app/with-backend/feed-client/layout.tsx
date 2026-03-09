@@ -1,4 +1,5 @@
 import React from 'react'
+import RQProvider from '@/components/RQProvider'
 
 export default function Layout({
   children,
@@ -6,8 +7,8 @@ export default function Layout({
   children: React.ReactNode
 }>) {
   return (
-    <>
+    <RQProvider>
       {children}
-    </>
+    </RQProvider>
   )
 }

@@ -1,6 +1,5 @@
 import NotesWithRQ from './_components/NotesWithRQ';
-import RQProvider from './_components/RQProvider';
 
-const Page = async () => <RQProvider><NotesWithRQ /></RQProvider>
+const Page = async () => <NotesWithRQ />
 
 export default Page

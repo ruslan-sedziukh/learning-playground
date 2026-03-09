@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import Link from '@/components/Link'
+import ReactQueryProvider from '@/components/ReactQueryProvider'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,16 +29,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen flex flex-col justify-start items-center bg-neutral-50`}
       >
-        <header className="flex items-center justify-center py-2 w-full border-b-2 border-neutral-300 h-fit">
-          <Link href="/">Home</Link>
-        </header>
+        <ReactQueryProvider>
+          <header className="flex items-center justify-center py-2 w-full border-b-2 border-neutral-300 h-fit">
+            <Link href="/">Home</Link>
+          </header>
 
-        <main className="w-full p-4 overflow-auto flex justify-center">
-          <div className="w-full max-w-[1024px] h-fit">
-            {children}
-          </div>
-        </main>
+          <main className="w-full p-4 overflow-auto flex justify-center">
+            <div className="w-full max-w-[1024px] h-fit">
+              {children}
+            </div>
+          </main>
+        </ReactQueryProvider>
       </body>
     </html>
   )
 }
+

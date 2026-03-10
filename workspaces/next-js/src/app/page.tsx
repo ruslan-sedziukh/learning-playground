@@ -107,12 +107,20 @@ const sections: SectionData[] = [
     heading: 'With backend part',
     links: [
       {
-        href: 'login',
+        href: 'with-backend/login',
         text: 'Auth form'
       },
       {
-        href: 'admin',
-        text: 'Admin'
+        href: 'with-backend/users',
+        text: 'Users'
+      },
+      {
+        href: 'with-backend/feed',
+        text: 'Feed'
+      },
+      {
+        href: 'with-backend/feed-client',
+        text: 'Feed client'
       }
     ]
   }

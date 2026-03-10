@@ -49,7 +49,7 @@ export default function Page() {
 
     if (isSuccess) {
       // This should be outside of try/catch block
-      redirect('/user-space');
+      redirect('/with-backend/feed');
     }
   }
 

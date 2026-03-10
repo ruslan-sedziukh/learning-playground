@@ -17,6 +17,11 @@ async function bootstrap() {
     }),
   );
 
+  // Enable CORS
+  app.enableCors({
+    origin: 'http://localhost:3001',
+  });
+
   // Required to allow Nest.js to read cookies
   app.use(cookieParser());
 

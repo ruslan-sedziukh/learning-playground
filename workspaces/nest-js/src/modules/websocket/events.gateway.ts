@@ -25,7 +25,9 @@ export class EventsGateway
   @SubscribeMessage('msgToServer')
   handleMessage(_client: Socket, payload: string): void {
     if (this.server) {
-      this.server.emit('msgToClient', payload);
+      const timeStamp = new Date().toLocaleTimeString('en-GB');
+
+      this.server.emit('msgToClient', timeStamp + ': ' + payload);
     }
   }
 

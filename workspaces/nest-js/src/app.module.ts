@@ -7,10 +7,7 @@ import { ItemsModule } from './modules/items/items.module';
 import { UsersModule } from './modules/users/users.module';
 import { NotesModule } from './modules/notes/notes.module';
 import { AuthModule } from './modules/auth/auth.module';
-import { EventsGateway } from './modules/websocket/websocket.gateway';
-// import * as path from 'path';
-// Import your entities here
-// import { User } from './user/user.entity'; // Example entity
+import { WebsocketModule } from './modules/websocket/websocket.module';
 
 @Module({
   imports: [
@@ -39,8 +36,9 @@ import { EventsGateway } from './modules/websocket/websocket.gateway';
     UsersModule,
     NotesModule,
     AuthModule,
+    WebsocketModule,
   ],
   controllers: [AppController],
-  providers: [AppService, EventsGateway],
+  providers: [AppService],
 })
 export class AppModule {}

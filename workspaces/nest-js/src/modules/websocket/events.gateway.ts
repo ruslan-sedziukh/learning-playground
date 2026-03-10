@@ -17,15 +17,19 @@ import { Socket, Server } from 'socket.io';
 export class EventsGateway
   implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect
 {
-  @WebSocketServer() server: Server;
+  @WebSocketServer()
+  server: Server;
+
   private logger: Logger = new Logger('EventsGateway');
 
   @SubscribeMessage('msgToServer')
-  handleMessage(client: Socket, payload: string): void {
-    this.server.emit('msgToClient', payload);
+  handleMessage(_client: Socket, payload: string): void {
+    if (this.server) {
+      this.server.emit('msgToClient', payload);
+    }
   }
 
-  afterInit(server: Server) {
+  afterInit() {
     this.logger.log('Init');
   }
 
@@ -33,7 +37,7 @@ export class EventsGateway
     this.logger.log(`Client disconnected: ${client.id}`);
   }
 
-  handleConnection(client: Socket, ...args: any[]) {
+  handleConnection(client: Socket) {
     this.logger.log(`Client connected: ${client.id}`);
   }
 }

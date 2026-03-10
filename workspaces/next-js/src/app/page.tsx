@@ -121,6 +121,10 @@ const sections: SectionData[] = [
       {
         href: 'with-backend/feed-client',
         text: 'Feed client'
+      },
+      {
+        href: 'with-backend/websocket',
+        text: 'Websocket chat'
       }
     ]
   }

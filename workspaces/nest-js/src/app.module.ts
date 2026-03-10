@@ -7,6 +7,7 @@ import { ItemsModule } from './modules/items/items.module';
 import { UsersModule } from './modules/users/users.module';
 import { NotesModule } from './modules/notes/notes.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { EventsGateway } from './modules/websocket/websocket.gateway';
 // import * as path from 'path';
 // Import your entities here
 // import { User } from './user/user.entity'; // Example entity
@@ -40,6 +41,6 @@ import { AuthModule } from './modules/auth/auth.module';
     AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, EventsGateway],
 })
 export class AppModule {}

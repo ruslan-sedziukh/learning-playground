@@ -9,17 +9,17 @@ export enum UserRole {
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  name: string;
+  name!: string;
 
   @Column({ unique: true })
   @IsEmail()
-  email: string;
+  email!: string;
 
   @Column()
-  password: string;
+  password!: string;
 
   @Column({
     type: 'enum',
@@ -27,5 +27,5 @@ export class User {
     // Every new user is a basic 'user' by default
     default: UserRole.USER,
   })
-  role: UserRole;
+  role!: UserRole;
 }

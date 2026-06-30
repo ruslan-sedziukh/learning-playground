@@ -14,7 +14,8 @@
     "nest-js:docker:dev": "npm run docker:dev --workspace=nest-js --",
     "nest-js:docker:up": "npm run docker:up --workspace=nest-js --",
     "nest-js:docker:down": "npm run docker:down --workspace=nest-js --",
-    "js-al:test": "npm run test --workspace=js-algorithms-and-data-structures"
+    "js-al:test": "npm run test --workspace=js-algorithms-and-data-structures",
+    "js-int:test": "npm run test --workspace=js-interview-exercises"
   },
   "private": true
 }

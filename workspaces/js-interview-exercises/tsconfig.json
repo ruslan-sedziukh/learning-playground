@@ -14,7 +14,7 @@
     "outDir": "./bin",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-
+    "types": ["jest", "node"],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitAny": true,

@@ -1,4 +1,7 @@
-function debounce<T extends (...args: any[]) => any>(func: T, delay: number) {
+export const debounce = <T extends (...args: any[]) => any>(
+  func: T,
+  delay: number,
+) => {
   let timeoutId: ReturnType<typeof setTimeout>
 
   return function (this: unknown, ...args: any[]) {

@@ -7,9 +7,7 @@ import { ItemsModule } from './modules/items/items.module';
 import { UsersModule } from './modules/users/users.module';
 import { NotesModule } from './modules/notes/notes.module';
 import { AuthModule } from './modules/auth/auth.module';
-// import * as path from 'path';
-// Import your entities here
-// import { User } from './user/user.entity'; // Example entity
+import { WebsocketModule } from './modules/websocket/websocket.module';
 
 @Module({
   imports: [
@@ -38,6 +36,7 @@ import { AuthModule } from './modules/auth/auth.module';
     UsersModule,
     NotesModule,
     AuthModule,
+    WebsocketModule,
   ],
   controllers: [AppController],
   providers: [AppService],

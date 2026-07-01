@@ -1,8 +1,7 @@
 {
-  "name": "js-algorithms-and-data-structures",
+  "name": "js",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:ruslan-sedziukh/js-algorithms-and-data-structures.git",
   "author": "Ruslan Sedziukh <ruslan.sedziukh@gmail.com>",
   "license": "MIT",
   "private": true,

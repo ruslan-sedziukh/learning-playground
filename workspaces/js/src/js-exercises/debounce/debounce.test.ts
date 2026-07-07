@@ -4,7 +4,7 @@ jest.useFakeTimers()
 
 describe('debounce', () => {
   describe('when is called few times with less then debounce time interval', () => {
-    test('is called only once', () => {
+    it('is called only once', () => {
       const result: string[] = []
 
       const obj = {
@@ -34,7 +34,7 @@ describe('debounce', () => {
   })
 
   describe('when is called few times with more then debounce time interval', () => {
-    test('is called every time', () => {
+    it('is called every time', () => {
       const result: string[] = []
       const debounceTimeout = 15
       const callTimeout = 100
@@ -64,6 +64,27 @@ describe('debounce', () => {
 
       expect(result).toHaveLength(3)
       expect(result).toEqual(names)
+    })
+  })
+
+  describe('cancel method', () => {
+    it('cancels debouced function execution', () => {
+      const result: string[] = []
+
+      const obj = {
+        name: 'John',
+        register: debounce(function (this: typeof obj) {
+          result.push(this.name)
+        }, 15),
+      }
+
+      obj.register()
+
+      obj.register.cancel()
+
+      jest.runAllTimers()
+
+      expect(result).toHaveLength(0)
     })
   })
 })

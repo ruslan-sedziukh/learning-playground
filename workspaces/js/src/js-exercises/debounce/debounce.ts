@@ -4,7 +4,7 @@ export const debounce = <T extends (...args: any[]) => any>(
 ) => {
   let timeoutId: ReturnType<typeof setTimeout>
 
-  return function (this: unknown, ...args: any[]) {
+  function debounced(this: unknown, ...args: any[]) {
     // Clear the previous timer if the function is called again within the delay period
     clearTimeout(timeoutId)
 
@@ -13,4 +13,10 @@ export const debounce = <T extends (...args: any[]) => any>(
       func.apply(this, args)
     }, delay)
   }
+
+  debounced.cancel = () => {
+    clearTimeout(timeoutId)
+  }
+
+  return debounced
 }

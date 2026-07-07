@@ -68,7 +68,7 @@ describe('debounce', () => {
   })
 
   describe('cancel method', () => {
-    it('cancels debouced function execution', () => {
+    it('cancels debounced function execution', () => {
       const result: string[] = []
 
       const obj = {
@@ -85,6 +85,25 @@ describe('debounce', () => {
       jest.runAllTimers()
 
       expect(result).toHaveLength(0)
+    })
+  })
+
+  describe('flush method', () => {
+    it('executes debounced immediately', () => {
+      const result: string[] = []
+
+      const obj = {
+        name: 'John',
+        register: debounce(function (this: typeof obj) {
+          result.push(this.name)
+        }, 15),
+      }
+
+      obj.register()
+
+      obj.register.flush()
+
+      expect(result).toHaveLength(1)
     })
   })
 })

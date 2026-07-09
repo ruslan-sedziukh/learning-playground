@@ -3,23 +3,27 @@ import { debounce } from './debounce'
 jest.useFakeTimers()
 
 describe('debounce', () => {
+  const debounceTimeout = 15
+  const longDebounceTimeout = 500
+  const names = ['John', 'Dan', 'Aria']
+
   describe('when is called few times with less then debounce time interval', () => {
     it('is called only once', () => {
       const result: string[] = []
 
       const obj = {
-        name: 'John',
+        name: names[0],
         register: debounce(function (this: typeof obj) {
           result.push(this.name)
-        }, 500),
+        }, longDebounceTimeout),
       }
 
       obj.register()
 
-      obj.name = 'Dan'
+      obj.name = names[1]
       obj.register()
 
-      obj.name = 'Aria'
+      obj.name = names[2]
       setTimeout(() => {
         obj.register()
       }, 150)
@@ -36,17 +40,13 @@ describe('debounce', () => {
   describe('when is called few times with more then debounce time interval', () => {
     it('is called every time', () => {
       const result: string[] = []
-      const debounceTimeout = 15
-      const callTimeout = 100
-
-      const names = ['John', 'Dan', 'Aria']
-
       const obj = {
         name: names[0],
         register: debounce(function (this: typeof obj) {
           result.push(this.name)
         }, debounceTimeout),
       }
+      const callTimeout = 100
 
       obj.register()
 
@@ -72,14 +72,13 @@ describe('debounce', () => {
       const result: string[] = []
 
       const obj = {
-        name: 'John',
+        name: names[0],
         register: debounce(function (this: typeof obj) {
           result.push(this.name)
-        }, 15),
+        }, debounceTimeout),
       }
 
       obj.register()
-
       obj.register.cancel()
 
       jest.runAllTimers()
@@ -93,17 +92,81 @@ describe('debounce', () => {
       const result: string[] = []
 
       const obj = {
-        name: 'John',
+        name: names[0],
         register: debounce(function (this: typeof obj) {
           result.push(this.name)
-        }, 15),
+        }, debounceTimeout),
       }
 
       obj.register()
-
       obj.register.flush()
 
       expect(result).toHaveLength(1)
+    })
+
+    it('uses the latest pending this and args', () => {
+      const result: string[] = []
+      const firstCallSuffix = 'first'
+      const secondCallSuffix = 'second;'
+      const firstObj = {
+        name: names[0],
+      }
+      const secondObj = {
+        name: names[2],
+      }
+
+      const register = debounce(function (
+        this: typeof firstObj | typeof secondObj,
+        suffix: string,
+      ) {
+        result.push(`${this.name}-${suffix}`)
+      }, debounceTimeout)
+
+      register.call(firstObj, firstCallSuffix)
+      register.call(secondObj, secondCallSuffix)
+
+      register.flush()
+
+      expect(result).toEqual([`${names[2]}-${secondCallSuffix}`])
+    })
+
+    it('clears the scheduled timer after flush', () => {
+      const result: string[] = []
+
+      const register = debounce((value: string) => {
+        result.push(value)
+      }, debounceTimeout)
+
+      register('latest')
+      register.flush()
+      jest.runAllTimers()
+
+      expect(result).toEqual(['latest'])
+    })
+  })
+
+  describe('recursive calls', () => {
+    it('schedules a new timer when the debounced callback calls itself', () => {
+      const result: number[] = []
+      let callCount = 0
+
+      const debounced = debounce(() => {
+        callCount += 1
+        result.push(callCount)
+
+        if (callCount < 2) {
+          debounced()
+        }
+      }, debounceTimeout)
+
+      debounced()
+
+      // runs only the timer that was pending before the call
+      jest.runOnlyPendingTimers()
+      expect(result).toEqual([1])
+
+      jest.runOnlyPendingTimers()
+      expect(result).toEqual([1, 2])
     })
   })
 })

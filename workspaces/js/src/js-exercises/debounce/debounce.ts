@@ -3,12 +3,15 @@ export const debounce = <T extends (...args: any[]) => any>(
   delay: number,
 ) => {
   let timeoutId: ReturnType<typeof setTimeout>
-  let pendingThis: unknown
-  let pendingArgs: Parameters<T>
+  let pendingThis: unknown | null
+  let pendingArgs: Parameters<T> | null
   let active = false
 
   const deactivate = (shouldClearTimeout?: boolean) => {
     active = false
+
+    pendingThis = null
+    pendingArgs = null
 
     if (shouldClearTimeout) {
       clearTimeout(timeoutId)
@@ -44,7 +47,7 @@ export const debounce = <T extends (...args: any[]) => any>(
   }
 
   debounced.flush = () => {
-    if (!active) {
+    if (!active || !pendingArgs) {
       return
     }
 

@@ -4,7 +4,7 @@ export const debounce = <T extends (...args: any[]) => any>(
 ) => {
   let timeoutId: ReturnType<typeof setTimeout>
   let pendingThis: unknown
-  let pendingArgs: any[]
+  let pendingArgs: Parameters<T>
   let active = false
 
   const deactivate = (shouldClearTimeout?: boolean) => {
@@ -15,7 +15,7 @@ export const debounce = <T extends (...args: any[]) => any>(
     }
   }
 
-  const activate = (context: unknown, args: any[]) => {
+  const activate = (context: unknown, args: Parameters<T>) => {
     pendingThis = context
     pendingArgs = args
     active = true
@@ -23,7 +23,7 @@ export const debounce = <T extends (...args: any[]) => any>(
 
   const callFunc = (
     context: unknown,
-    args: any[],
+    args: Parameters<T>,
     shouldClearTimeout?: boolean,
   ) => {
     // `deactivate` should be called before the function for the case when it recursively calls `debounced`
@@ -31,7 +31,7 @@ export const debounce = <T extends (...args: any[]) => any>(
     func.apply(context, args)
   }
 
-  function debounced(this: unknown, ...args: any[]) {
+  function debounced(this: unknown, ...args: Parameters<T>) {
     // Clear the previous timer if the function is called again within the delay period
     clearTimeout(timeoutId)
 

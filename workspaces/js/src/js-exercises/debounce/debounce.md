@@ -28,9 +28,3 @@ When to use debouncing:
 - When we are dealing with operations like API calls then we can prevent unnecessary network requests to optimize the performance.
 - We can prevent the lags or delays due to repeated function execution to improve the user experience.
 - We can limit the function calls triggered by frequent user actions such as typing, and scrolling.
-
-## Implementation
-
-###  `func.apply`
-
-The function returned by `debounce` is called on an object, so its `this` context points to that object. However, because `func` is executed inside `setTimeout` as a standalone function, its own `this` would default to `window` or `undefined` in strict mode. That is why `func.apply` must be used.
